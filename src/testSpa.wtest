@@ -1,0 +1,24 @@
+import personas.*
+
+test "testRamiro" {
+	ramiro.diaDeTrabajo()
+	spa.atender(ramiro)
+	assert.equals(0,ramiro.contracturacion())
+	assert.equals("NoGrasosa",ramiro.grasaDeLaPiel())
+}
+
+test "test Atender a todo el mundo"{
+	ramiro.diaDeTrabajo()
+	spa.atender(ramiro)
+	spa.atender(olivia)
+	spa.atender(bruno)
+	
+	assert.equals(0,ramiro.contracturacion())
+	assert.equals("NoGrasosa",ramiro.grasaDeLaPiel())
+		
+}
+test "Test volver enseguida"{
+	spa.atender(olivia)
+	spa.atender(olivia)
+	assert.equals(15,olivia.gradoDeConcentracion())
+}
