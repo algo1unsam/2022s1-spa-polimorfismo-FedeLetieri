@@ -15,6 +15,11 @@ object olivia {
 	method estoyEnElSpa() {
 		self.masajes()
 	}
+	
+	/*
+	 method banioDeVapor(){
+	  }
+	 */
 
 	method masajes() {
 		gradoDeConcentracion += 3
