@@ -3,8 +3,9 @@ import personas.*
 test "testRamiro" {
 	ramiro.diaDeTrabajo()
 	spa.atender(ramiro)
+	spa.atender(ramiro)
 	assert.equals(0,ramiro.contracturacion())
-	assert.equals("NoGrasosa",ramiro.grasaDeLaPiel())
+	assert.equals(false,ramiro.grasaDeLaPiel())
 }
 
 test "test Atender a todo el mundo"{
@@ -14,7 +15,7 @@ test "test Atender a todo el mundo"{
 	spa.atender(bruno)
 	
 	assert.equals(0,ramiro.contracturacion())
-	assert.equals("NoGrasosa",ramiro.grasaDeLaPiel())
+	assert.equals(false,ramiro.grasaDeLaPiel())
 		
 }
 test "Test volver enseguida"{

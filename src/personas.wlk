@@ -1,138 +1,146 @@
 object olivia {
-	var gradoDeConcentracion=6
-	
-	//getter de concentracion
-	method gradoDeConcentracion(){
+
+	var gradoDeConcentracion = 6
+
+	// getter de concentracion
+	method gradoDeConcentracion() {
 		return gradoDeConcentracion
 	}
-	
-	//Metodos
-	method discutir(){
-		gradoDeConcentracion-=1
+
+	// Metodos
+	method discutir() {
+		gradoDeConcentracion -= 1
 	}
-	
-	method estoyEnElSpa(){
+
+	method estoyEnElSpa() {
 		self.masajes()
 	}
-	
-	method masajes(){
-		gradoDeConcentracion+=3	
+
+	method masajes() {
+		gradoDeConcentracion += 3
 	}
+
 }
 
-object bruno{
-	var felicidad="si"
-	var sed="no"
-	var peso=55000
-	
-	method estoyEnElSpa(){
+object bruno {
+
+	var felicidad = true
+	var sed = false
+	var peso = 55000
+
+	method estoyEnElSpa() {
 		self.masajes()
 		self.banioDeVapor()
 	}
-	
-	method masajes(){
-		felicidad="si"
+
+	method masajes() {
+		felicidad = true
 	}
-	
-	method banioDeVapor(){
-		peso-=500
-		sed="si"
+
+	method banioDeVapor() {
+		peso -= 500
+		sed = true
 	}
-	//Acciones Personales
-	method tomarAgua(){
-		sed="no"
+
+	// Acciones Personales
+	method tomarAgua() {
+		sed = false
 	}
-	method comerFideos(){
-		peso+=250
-		sed="si"
+
+	method comerFideos() {
+		peso += 250
+		sed = true
 	}
-	method correr(){
-		peso-=300
-	}		
-	method verNoticiero(){
-		felicidad="no"
+
+	method correr() {
+		peso -= 300
 	}
-	//Getters
-	method estaPerfecto(){
-		var mensaje=""
-		if(felicidad=="si" and sed=="no" and peso>50000 and peso<70000){
-			mensaje="Estoy perfecto"
-		}
-		else mensaje="No estoy perfecto"
-		return mensaje
+
+	method verNoticiero() {
+		felicidad = false
 	}
-	//Accion conjunta en un metodo
-	method mediodiaEnCasa(){
+
+	// Getters
+	method estaPerfecto() {
+		return felicidad and (not sed) and peso > 50000 and peso < 70000
+		//Metodo para no usar dos comparaciones
+		//peso.between(50000, 70000)
+	}
+
+	// Accion conjunta en un metodo
+	method mediodiaEnCasa() {
 		self.comerFideos()
 		self.tomarAgua()
 		self.verNoticiero()
 	}
-	
+
 }
 
-object ramiro{
-	var contracturacion=0
-	var grasaDeLaPiel="NoGrasosa"
-	
-	method estoyEnElSpa(){
+object ramiro {
+
+	var contracturacion = 0
+	var grasaDeLaPiel = false
+
+	method estoyEnElSpa() {
 		self.masajes()
 		self.banioDeVapor()
 	}
-	
-	method masajes(){
-		contracturacion-=2
-		if(contracturacion<0){
-			contracturacion=0
+
+	method masajes() {
+		contracturacion -= 2
+		if (contracturacion < 0) {
+			contracturacion = 0
 		}
+		//Forma sin usar un if
+		//contracturacion.max(0)
 	}
-	
-	method banioDeVapor(){
-		grasaDeLaPiel="NoGrasosa"
+
+	method banioDeVapor() {
+		grasaDeLaPiel = false
 	}
-	
-	method comerBigMag(){
-		grasaDeLaPiel="Grasosa"
+
+	method comerBigMag() {
+		grasaDeLaPiel = true
 	}
-	method bajarFosa(){
-		grasaDeLaPiel="Grasosa"
-		contracturacion+=1
+
+	method bajarFosa() {
+		grasaDeLaPiel = true
+		contracturacion += 1
 	}
-	method jugarPaddle(){
-		contracturacion+=3
+
+	method jugarPaddle() {
+		contracturacion += 3
 	}
-	//Accion conjunta en un metodo
-	
-	method diaDeTrabajo(){
+
+	// Accion conjunta en un metodo
+	method diaDeTrabajo() {
 		self.bajarFosa()
 		self.comerBigMag()
 		self.bajarFosa()
 	}
-	
-	//getter
-	method contracturacion(){
+
+	// getter
+	method contracturacion() {
 		return contracturacion
 	}
-	method grasaDeLaPiel(){
+
+	method grasaDeLaPiel() {
 		return grasaDeLaPiel
 	}
+
 }
 
-object spa{
+object spa {
+
 	var ultimoCliente
-	
-	method atender(persona){
-		
-		if (ultimoCliente==persona){
+
+	method atender(persona) {
+		if (ultimoCliente == persona) {
 			persona.masajes()
 		}
 		persona.estoyEnElSpa()
-		ultimoCliente=persona	
+		ultimoCliente = persona
 	}
-	
-	 
-	
+
 }
-
-
-
-
+	
